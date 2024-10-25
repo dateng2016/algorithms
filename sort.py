@@ -1,7 +1,7 @@
 def merge_sort(arr):
     # The runtime is O(nlog(n)) the space is O(n) mainly need to
     # account for list storage while doing recursive
-    if len(arr) == 1:
+    if len(arr) <= 1:
         return arr
     mid = len(arr) // 2
     left = merge_sort(arr[:mid])
@@ -97,7 +97,6 @@ def insertion_sort(arr):
 # It has the same performance in terms of time and space as bubble.
 
 
-
 # HEAP SORT
 def heapify(arr, n, parent_index):
     # * n -> length of the array
@@ -136,8 +135,7 @@ def heap_sort(arr):
         heapify(arr, i, 0)
 
 
-arr = [9, 4, 3, 8, 10, 2, 5]
-print(arr)
-heap_sort(arr)
-print(arr)
-
+# arr = [9, 4, 3, 8, 10, 2, 5]
+# print(arr)
+# heap_sort(arr)
+# print(arr)
