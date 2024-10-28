@@ -47,10 +47,10 @@ def in_place_quick_sort(low, high, arr):
 
 
 def partition(low, high, arr):
-    pivot = arr[high]
+    pivot_value = arr[high]
     i = low - 1
     for j in range(low, high):
-        if arr[j] <= pivot:
+        if arr[j] <= pivot_value:
             i += 1
             arr[j], arr[i] = arr[i], arr[j]
     arr[i + 1], arr[high] = arr[high], arr[i + 1]
@@ -113,7 +113,7 @@ def heapify(arr, n, parent_index):
     if right_child_index < n and arr[right_child_index] > arr[largest_index]:
         largest_index = right_child_index
 
-    # *Determines if any swaps are needed
+    # * Determines if any swaps are needed
     if largest_index != parent_index:
         arr[largest_index], arr[parent_index] = arr[parent_index], arr[largest_index]
         # * Recursively heapify the child node that has been swapped
