@@ -10,7 +10,7 @@ The longest path is no longer than twice of the shortest path.
 
 When inserting, default it to RED.
 
-### Three conditions when balance is lost
+### Three conditions when balance is lost and how to fix
 
 1. The node inserted is the root node
 

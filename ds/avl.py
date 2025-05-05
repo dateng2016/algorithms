@@ -52,7 +52,7 @@ class AVLTree:
         return root
 
     def left_rotate(self, z: Optional[Node]):
-        y: Node = z.right  # * y is the PIVOT POINT
+        y: Node = z.right  # * y is the PIVOT POINT (right child)
         T2 = y.left  # * the OLD left child of PIVOT POINT
 
         # Perform rotation
@@ -112,4 +112,3 @@ if __name__ == "__main__":
     print("Pre-order traversal of the constructed AVL tree:")
     avl_tree.pre_order(root)
     print()
-

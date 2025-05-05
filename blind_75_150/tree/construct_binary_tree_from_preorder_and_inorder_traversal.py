@@ -12,6 +12,19 @@ class TreeNode:
 
 class Solution:
     def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
+        # NeetCode Guy: Recursive Approach (Mine performs better actually)
+        if not preorder or not inorder:
+            return None
+
+        root = TreeNode(preorder[0])
+        mid = inorder.index(preorder[0])
+        root.left = self.buildTree(
+            preorder=preorder[1 : mid + 1], inorder=inorder[:mid]
+        )
+        root.right = self.buildTree(
+            preorder=preorder[mid + 1 :], inorder=inorder[mid + 1 :]
+        )
+        return root
 
         # R -> O(n)
         # S -> O(n)
@@ -55,18 +68,3 @@ class Solution:
                 cur = nxt
             i += 1
         return root
-
-        # NeetCode Guy: Recursive Approach (Mine performs better actually)
-        if not preorder or not inorder:
-            return None
-
-        root = TreeNode(preorder[0])
-        mid = inorder.index(preorder[0])
-        root.left = self.buildTree(
-            preorder=preorder[1 : mid + 1], inorder=inorder[:mid]
-        )
-        root.right = self.buildTree(
-            preorder=preorder[mid + 1 :], inorder=inorder[mid + 1 :]
-        )
-        return root
-

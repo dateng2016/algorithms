@@ -65,6 +65,7 @@ def bubble_sort(arr):
     """It ensures that the right part of the list is always sorted"""
     l = len(arr)
     for i in range(l):
+        # * Each time arr[l - i] becomes the MAX in arr[: l - i + 1]
         swapped = False
         for j in range(l - i - 1):
             if arr[j] > arr[j + 1]:
@@ -73,6 +74,19 @@ def bubble_sort(arr):
         if not swapped:
             break
     return
+
+
+def bubble_sort2(arr: list):
+    """This one is more INTUITIVE"""
+    l = len(arr)
+    for max_idx in range(l - 1, 0, -1):
+        swapped = False
+        for j in range(max_idx):
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+                swapped = True
+        if not swapped:
+            return
 
 
 # space complexity is O(1) since it is in place and there is no call stack
@@ -137,7 +151,24 @@ def heap_sort(arr):
         heapify(arr, i, 0)
 
 
-# arr = [9, 4, 3, 8, 10, 2, 5]
+def selection_sort(arr: list):
+    """
+    Time Complexity: O(n2) ,as there are two nested loops
+    Space Complexity: O(1)
+    """
+    l = len(arr)
+    for i in range(l - 1):
+        min_idx = i
+        for j in range(i + 1, l):
+            if arr[j] < arr[min_idx]:
+                min_idx = j
+        arr[i], arr[min_idx] = arr[min_idx], arr[i]
+
+
+arr = [9, 4, 3, 8, 10, 2, 5]
 # print(arr)
 # heap_sort(arr)
 # print(arr)
+print(arr == sorted(arr))
+selection_sort(arr)
+print(arr == sorted(arr))
