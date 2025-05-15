@@ -1,3 +1,3 @@
 Backtracking: N Queens
 Graphs: Word Ladder
-Advanced Graphs -> TODO: Need to work on this
+Advanced Graphs -> Need to redo the whole thing.
